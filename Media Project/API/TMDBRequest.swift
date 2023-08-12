@@ -8,13 +8,16 @@
 import Alamofire
 import Foundation
 
-typealias TimeWindow = String
-typealias MovieID = Int32
-
 enum TMDBRequest: URLRequestConvertible {
+    
+    enum TimeWindow: String {
+        case day = "day"
+        case week = "week"
+    }
+    
     case trending(path: TimeWindow,
                   queryItems: [URLQueryItem]? = nil)
-    case credit(path: MovieID,
+    case credit(path: Int32,
                 queryItems: [URLQueryItem]? = nil)
 }
 
@@ -31,10 +34,11 @@ extension TMDBRequest {
         return HTTPHeader.authorization(bearerToken: APIKEY.tmdb_accessToken)
     }
     
+    // ⭐️ domb: 현재는 movie로 해놓고 다음에는 선택가능하도록 ⭐️
     var path: String {
         switch self {
         case .trending(let timeWindow, _):
-            return "/trending/all/\(timeWindow)"
+            return "/trending/movie/\(timeWindow.rawValue)"
         case .credit(let movieID, _):
             return "/movie/\(movieID)/credits"
         }
@@ -42,7 +46,10 @@ extension TMDBRequest {
     
     var queryItems: [URLQueryItem] {
         
-        var defaultQueryItem = [URLQueryItem(name: "api_key", value: APIKEY.tmdb_Key)]
+        let defaultQueryItem = [
+            URLQueryItem(name: "api_key", value: APIKEY.tmdb_Key),
+            URLQueryItem(name: "language", value: "ko-KR")
+        ]
         
         switch self {
         case .trending(_, let queryitems):
