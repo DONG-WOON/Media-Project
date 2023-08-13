@@ -24,7 +24,6 @@ final class CreditViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
         
         update(data: movieDetail)
         callCastRequest()
@@ -50,8 +49,6 @@ final class CreditViewController: UIViewController {
             }
         }
     }
-    
-    
 }
 
 extension CreditViewController: UITableViewDataSource, UITableViewDelegate {
@@ -93,6 +90,20 @@ extension CreditViewController: UITableViewDataSource, UITableViewDelegate {
             
             return cell
         default: return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let section = indexPath.section
+        
+        switch section {
+        case 0:
+            return UITableView.automaticDimension
+        case 1:
+            return 130
+        default:
+            return UITableView.automaticDimension
         }
     }
 }

@@ -8,9 +8,29 @@
 import UIKit
 
 extension UIView: Identifiable {
-    func rounded(radius: CGFloat = 10) {
-        self.clipsToBounds = true
+    
+    enum Direction {
+        case top
+        case left
+        case right
+        case bottom
+        case  all
+    }
+    
+    func rounded(radius: CGFloat = 10, direction: Direction) {
         self.layer.cornerRadius = radius
+        switch direction {
+        case .top:
+            self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        case .left:
+            self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+        case .right:
+            self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+        case .bottom:
+            self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        case .all:
+            self.layer.cornerRadius = radius
+        }
     }
     
     func makeShadow(radius: CGFloat = 10) {

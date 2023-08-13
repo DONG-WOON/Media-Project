@@ -20,11 +20,11 @@ final class TMDBContentsTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        contentsBackground.rounded()
+        contentsImageView.rounded(direction: .top)
+        contentsBackground.rounded(direction: .all)
         contentsBackground.makeShadow()
     }
     
