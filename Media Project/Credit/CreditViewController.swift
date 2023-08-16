@@ -10,11 +10,11 @@ import Kingfisher
 
 final class CreditViewController: UIViewController {
     
-    var contensDetail: Contents?
+    var contentsDetail: Contents?
     
     private var castList: [Cast] = []
     private var overviewIsOpened = false
-    
+    private lazy var goToSeriesVCButton = UIBarButtonItem(title: "Series", image: UIImage(systemName: "list.bullet.below.rectangle"), target: self, action: #selector(goToSeriesVC))
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -25,9 +25,12 @@ final class CreditViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        if contentsDetail?.mediaType == .tv {
+            navigationItem.rightBarButtonItem = goToSeriesVCButton
+        }
         
-        update(data: contensDetail)
-        callCastRequest(mediaType: contensDetail?.mediaType)
+        update(data: contentsDetail)
+        callCastRequest(mediaType: contentsDetail?.mediaType)
     }
     
     private func update(data: Contents?) {
@@ -40,7 +43,7 @@ final class CreditViewController: UIViewController {
     
     private func callCastRequest(mediaType: MediaType?) {
         guard let mediaType else { return }
-        guard let id = contensDetail?.id else { return }
+        guard let id = contentsDetail?.id else { return }
         
         var request: TMDBRequest {
             switch mediaType {
@@ -50,7 +53,7 @@ final class CreditViewController: UIViewController {
                 return .tvCredit(path: id)
             }
         }
-        guard let movieID = contensDetail?.id else { return }
+        guard let movieID = contentsDetail?.id else { return }
         
         APIManager.shared.request(request, responseType: CreditResponse.self) { [weak self] result in
             switch result {
@@ -62,6 +65,13 @@ final class CreditViewController: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    @objc
+    private func goToSeriesVC() {
+        guard let vc = storyboard?.instantiateViewController(identifier: SeriesViewController.identifier) as? SeriesViewController else { return }
+        vc.id = contentsDetail?.id
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -94,7 +104,7 @@ extension CreditViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OverviewCell.identifier, for: indexPath) as? OverviewCell else { return UITableViewCell() }
             
-            cell.update(data: contensDetail?.overview, opened: overviewIsOpened)
+            cell.update(data: contentsDetail?.overview, opened: overviewIsOpened)
             
             cell.overviewSectionReload = { [weak self] in
                 self?.overviewIsOpened.toggle()

@@ -111,7 +111,7 @@ extension TrendingViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard let vc = storyboard?.instantiateViewController(identifier: CreditViewController.identifier) as? CreditViewController else { return }
-        vc.contensDetail = contentsList[indexPath.row]
+        vc.contentsDetail = contentsList[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
 }

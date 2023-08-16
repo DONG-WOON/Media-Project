@@ -19,9 +19,10 @@ struct Contents: Codable {
     let originalTitle: String?
     let overview: String?
     let posterPath: String
-    let mediaType: MediaType
-    let genreIDS: [Int]
+    let mediaType: MediaType?
+    let genreIDS: [Int]?
     var genre: [String] {
+        guard let genreIDS else { return [] }
         return genreIDS.map { genreList[$0] ?? "" }
     }
   
@@ -30,6 +31,8 @@ struct Contents: Codable {
     let name: String?
     let releaseDate: String?
     let voteAverage: Double
+    let numberOfEpisodes, numberOfSeasons: Int?
+    let seasons: [Season]?
     
     enum CodingKeys: String, CodingKey {
         case adult
@@ -46,12 +49,32 @@ struct Contents: Codable {
         case voteAverage = "vote_average"
         case originalName = "original_name"
         case firstAirDate = "first_air_date"
+        case numberOfEpisodes = "number_of_episodes"
+        case numberOfSeasons = "number_of_seasons"
+        case seasons
     }
 }
 
 enum MediaType: String, Codable {
     case movie = "movie"
     case tv = "tv"
+}
+
+struct Season: Codable {
+    let airDate: String?
+    let episodeCount, id: Int
+    let name, overview, posterPath: String
+    let seasonNumber: Int
+    let voteAverage: Double
+
+    enum CodingKeys: String, CodingKey {
+        case airDate = "air_date"
+        case episodeCount = "episode_count"
+        case id, name, overview
+        case posterPath = "poster_path"
+        case seasonNumber = "season_number"
+        case voteAverage = "vote_average"
+    }
 }
 
 let genreList = [

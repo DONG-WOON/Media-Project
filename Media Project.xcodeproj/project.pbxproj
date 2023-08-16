@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		72AC18382A8CDEC200E9246E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC18372A8CDEC200E9246E /* Category.swift */; };
+		72AC183A2A8CFBE000E9246E /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC18392A8CFBE000E9246E /* SeriesViewController.swift */; };
+		72AC183F2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC183D2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift */; };
+		72AC18402A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AC183E2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.xib */; };
+		72AC18432A8CFD8200E9246E /* SeriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC18412A8CFD8200E9246E /* SeriesCollectionViewCell.swift */; };
+		72AC18442A8CFD8200E9246E /* SeriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AC18422A8CFD8200E9246E /* SeriesCollectionViewCell.xib */; };
+		72AC18462A8CFE1A00E9246E /* SeriesCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC18452A8CFE1A00E9246E /* SeriesCompositionalLayout.swift */; };
 		72C405E12A862E2E0044C891 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C405E02A862E2E0044C891 /* AppDelegate.swift */; };
 		72C405E32A862E2E0044C891 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C405E22A862E2E0044C891 /* SceneDelegate.swift */; };
 		72C405E52A862E2E0044C891 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C405E42A862E2E0044C891 /* TrendingViewController.swift */; };
@@ -37,6 +43,12 @@
 
 /* Begin PBXFileReference section */
 		72AC18372A8CDEC200E9246E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		72AC18392A8CFBE000E9246E /* SeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewController.swift; sourceTree = "<group>"; };
+		72AC183D2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSeriesCollectionReusableView.swift; sourceTree = "<group>"; };
+		72AC183E2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSeriesCollectionReusableView.xib; sourceTree = "<group>"; };
+		72AC18412A8CFD8200E9246E /* SeriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		72AC18422A8CFD8200E9246E /* SeriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesCollectionViewCell.xib; sourceTree = "<group>"; };
+		72AC18452A8CFE1A00E9246E /* SeriesCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesCompositionalLayout.swift; sourceTree = "<group>"; };
 		72C405DD2A862E2E0044C891 /* Media Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Media Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C405E02A862E2E0044C891 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72C405E22A862E2E0044C891 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +89,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		72AC183B2A8CFD2200E9246E /* Series */ = {
+			isa = PBXGroup;
+			children = (
+				72AC18392A8CFBE000E9246E /* SeriesViewController.swift */,
+				72AC183D2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift */,
+				72AC183E2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.xib */,
+				72AC18412A8CFD8200E9246E /* SeriesCollectionViewCell.swift */,
+				72AC18422A8CFD8200E9246E /* SeriesCollectionViewCell.xib */,
+				72AC18452A8CFE1A00E9246E /* SeriesCompositionalLayout.swift */,
+			);
+			path = Series;
+			sourceTree = "<group>";
+		};
 		72C405D42A862E2E0044C891 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +126,7 @@
 				72C406202A8778270044C891 /* Model */,
 				72C406282A87B6890044C891 /* Credit */,
 				72C406232A8778520044C891 /* Trending */,
+				72AC183B2A8CFD2200E9246E /* Series */,
 				72C406222A8778470044C891 /* Protocol */,
 				72C406212A8778390044C891 /* API */,
 				72C406062A8643B80044C891 /* Extension */,
@@ -241,8 +267,10 @@
 			files = (
 				72C405ED2A862E310044C891 /* LaunchScreen.storyboard in Resources */,
 				72C405EA2A862E310044C891 /* Assets.xcassets in Resources */,
+				72AC18402A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.xib in Resources */,
 				72C405F92A862FED0044C891 /* .gitignore in Resources */,
 				72C405E82A862E2E0044C891 /* Main.storyboard in Resources */,
+				72AC18442A8CFD8200E9246E /* SeriesCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,16 +288,20 @@
 				72C405E12A862E2E0044C891 /* AppDelegate.swift in Sources */,
 				72C4060D2A8747D00044C891 /* Responses.swift in Sources */,
 				72C405FF2A8630E90044C891 /* APIKEY.swift in Sources */,
+				72AC18432A8CFD8200E9246E /* SeriesCollectionViewCell.swift in Sources */,
 				72C406142A8760F70044C891 /* TMDBContentsTableViewCell.swift in Sources */,
 				72C406252A8787540044C891 /* Cast.swift in Sources */,
+				72AC183A2A8CFBE000E9246E /* SeriesViewController.swift in Sources */,
 				72C406162A87611B0044C891 /* Extension+UIViewController.swift in Sources */,
 				72C4062A2A87B6A80044C891 /* CastCell.swift in Sources */,
 				72AC18382A8CDEC200E9246E /* Category.swift in Sources */,
 				72C405FD2A8630E10044C891 /* EndPoint.swift in Sources */,
 				72C405E32A862E2E0044C891 /* SceneDelegate.swift in Sources */,
+				72AC183F2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift in Sources */,
 				72C4062C2A87B6B60044C891 /* OverviewCell.swift in Sources */,
 				72C4061A2A8761CA0044C891 /* Identifiable.swift in Sources */,
 				72C406032A8632040044C891 /* TMDBRequest.swift in Sources */,
+				72AC18462A8CFE1A00E9246E /* SeriesCompositionalLayout.swift in Sources */,
 				72C4061F2A87781E0044C891 /* Contents.swift in Sources */,
 				72C406182A8761270044C891 /* Extension+UIView.swift in Sources */,
 				72C406272A87B6830044C891 /* CreditViewController.swift in Sources */,
