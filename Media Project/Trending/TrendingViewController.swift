@@ -18,6 +18,7 @@ final class TrendingViewController: UIViewController {
             isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
         }
     }
+
     var contentsList = [Movie]()
     
     override func viewDidLoad() {
@@ -26,11 +27,12 @@ final class TrendingViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        title = "Trending"
+        
         callTrendingRequest()
     }
     
     func callTrendingRequest() {
-        
         isLoading = true
         
         APIManager.shared.request(.trending(path: .day), responseType: TrendingResponse.self) { result in

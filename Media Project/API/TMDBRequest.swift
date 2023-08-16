@@ -45,7 +45,7 @@ extension TMDBRequest {
     }
     
     var queryItems: [URLQueryItem] {
-        
+        // ⭐️ TO DO: localization을 지원한다면 language의 수정이 필요함 ⭐️
         let defaultQueryItem = [
             URLQueryItem(name: "api_key", value: APIKEY.tmdb_Key),
             URLQueryItem(name: "language", value: "ko-KR")

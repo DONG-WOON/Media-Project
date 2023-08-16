@@ -31,6 +31,7 @@ final class CreditViewController: UIViewController {
     
     private func update(data: Movie?) {
         guard let data else { return }
+        
         backdropImageView.kf.setImage(with: URL(string: EndPoint.imageURL + data.backdropPath))
         posterImageView.kf.setImage(with: URL(string: EndPoint.imageURL + data.posterPath))
         nameLabel.text = data.title
@@ -38,6 +39,7 @@ final class CreditViewController: UIViewController {
     
     private func callCastRequest() {
         guard let movieID = movieDetail?.id else { return }
+        
         APIManager.shared.request(.credit(path: Int32(movieID)), responseType: CreditResponse.self) { result in
             switch result {
             case .success(let data):
@@ -58,7 +60,6 @@ extension CreditViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
         switch section {
         case 0: return "Overview"
         case 1: return "Cast"
@@ -76,10 +77,14 @@ extension CreditViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
+        
         switch section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OverviewCell.identifier, for: indexPath) as? OverviewCell else { return UITableViewCell() }
             
+            cell.overviewSectionReload = {
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
             cell.update(data: movieDetail?.overview)
             
             return cell
@@ -94,12 +99,9 @@ extension CreditViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         let section = indexPath.section
         
         switch section {
-        case 0:
-            return UITableView.automaticDimension
         case 1:
             return 130
         default:

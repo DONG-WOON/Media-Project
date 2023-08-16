@@ -10,11 +10,8 @@ import Kingfisher
 
 final class TMDBContentsTableViewCell: UITableViewCell {
     
-    //
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
-    
-    // contents
     @IBOutlet weak var contentsBackground: UIView!
     @IBOutlet weak var contentsImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
