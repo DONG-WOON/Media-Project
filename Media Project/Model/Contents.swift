@@ -1,5 +1,5 @@
 //
-//  Movie.swift
+//  Contents.swift
 //  Media Project
 //
 //  Created by 서동운 on 8/12/23.
@@ -7,16 +7,15 @@
 
 import Foundation
 
-// MARK: - Movie
+// MARK: - Contents
 
-struct Movie: Codable {
+struct Contents: Codable {
     let adult: Bool
-    let belongsToCollection: [Movie]?
+    let belongsToCollection: [Contents]?
     let backdropPath: String
-    let firstAirDate: String?
-    let id: Int
+    let id: Int32
     let title: String?
-    let originalLanguage: String?
+    let originalLanguage: String
     let originalTitle: String?
     let overview: String?
     let posterPath: String
@@ -25,17 +24,18 @@ struct Movie: Codable {
     var genre: [String] {
         return genreIDS.map { genreList[$0] ?? "" }
     }
-    
+  
+    let originalName: String?
+    let firstAirDate: String?
+    let name: String?
     let releaseDate: String?
     let voteAverage: Double
-    let name, originalName: String?
     
     enum CodingKeys: String, CodingKey {
         case adult
         case belongsToCollection = "belongs_to_collection"
         case backdropPath = "backdrop_path"
-        case firstAirDate = "first_air_date"
-        case id, title
+        case id, title, name
         case originalLanguage = "original_language"
         case originalTitle = "original_title"
         case overview
@@ -44,8 +44,8 @@ struct Movie: Codable {
         case genreIDS = "genre_ids"
         case releaseDate = "release_date"
         case voteAverage = "vote_average"
-        case name
         case originalName = "original_name"
+        case firstAirDate = "first_air_date"
     }
 }
 
@@ -73,6 +73,13 @@ let genreList = [
     10770: "TV 영화",
     53: "스릴러",
     10752: "전쟁",
-    37: "서부"
+    37: "서부",
+    10759: "Action & Adventure",
+    10762: "Kids",
+    10763: "News",
+    10764: "Reality",
+    10765: "Sci-Fi & Fantasy",
+    10766: "Soap",
+    10767: "Talk",
+    10768: "War & Politics"
 ]
-

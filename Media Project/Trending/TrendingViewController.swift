@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import Combine
 
 final class TrendingViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+
+    @Published var currentTitle = Category.all.title
     
+    lazy var categoryButton = UIBarButtonItem(image: UIImage(systemName: "list.bullet"))
+    private var anyCancellable = Set<AnyCancellable>()
     private var isLoading = false {
         didSet {
             activityIndicator.hidesWhenStopped = !isLoading
@@ -19,7 +24,7 @@ final class TrendingViewController: UIViewController {
         }
     }
 
-    var contentsList = [Movie]()
+    var contentsList = [Contents]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,21 +32,55 @@ final class TrendingViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        title = "Trending"
+        navigationItem.leftBarButtonItem = categoryButton
         
-        callTrendingRequest()
+        $currentTitle.sink { [weak self] title in
+            self?.title = title
+        }.store(in: &anyCancellable)
+       
+        setCategoryButton()
+        
+        callTrendingRequest(.all)
     }
     
-    func callTrendingRequest() {
+    private func setCategoryButton() {
+        categoryButton.menu = UIMenu(children: [
+            UIAction(title: Category.all.title) { [weak self] action in
+                guard self?.currentTitle != Category.all.title else { return }
+                self?.currentTitle = "\(Category.all.title) Trending"
+                self?.callTrendingRequest(.all)
+            },
+            UIAction(title: Category.movie.title) { [weak self] action in
+                guard self?.currentTitle != Category.movie.title else { return }
+                self?.currentTitle = "\(Category.movie.title) Trending"
+                self?.callTrendingRequest(.movie)
+            },
+            UIAction(title: Category.tv.rawValue) { [weak self] action in
+                guard self?.currentTitle != Category.tv.title else { return }
+                self?.currentTitle = "\(Category.tv.title) Trending"
+                self?.callTrendingRequest(.tv)
+            }
+        ])
+    }
+    
+    func callTrendingRequest(_ category: Category) {
         isLoading = true
         
-        APIManager.shared.request(.trending(path: .day), responseType: TrendingResponse.self) { result in
+        var request: TMDBRequest {
+            switch category {
+            case .all: return .allTrending(path: .day)
+            case .movie: return .movieTrending(path: .day)
+            case .tv: return .tvTrending(path: .day)
+            }
+        }
+        
+        APIManager.shared.request(request, responseType: TrendingResponse.self) { [weak self] result in
             switch result {
             case .success(let data):
-                self.contentsList = data.results
-                self.tableView.reloadData()
-                
-                self.isLoading = false
+                self?.contentsList = data.results
+                self?.tableView.reloadData()
+                self?.isLoading = false
+                self?.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             case .failure(let error):
                 print(error)
             }
@@ -72,7 +111,7 @@ extension TrendingViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard let vc = storyboard?.instantiateViewController(identifier: CreditViewController.identifier) as? CreditViewController else { return }
-        vc.movieDetail = contentsList[indexPath.row]
+        vc.contensDetail = contentsList[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
 }

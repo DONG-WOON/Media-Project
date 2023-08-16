@@ -32,6 +32,7 @@ final class OverviewCell: UITableViewCell {
     
     func update(data: String?, opened: Bool = false) {
         overviewLabel.text = data
+        
         if opened {
             overviewLabel.numberOfLines =  0
             let disclosureImageName = "chevron.up"

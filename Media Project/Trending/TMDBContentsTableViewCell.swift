@@ -35,11 +35,11 @@ final class TMDBContentsTableViewCell: UITableViewCell {
         
     }
     
-    func update(data: Movie) {
+    func update(data: Contents) {
         self.categoryLabel.text = data.genre.map {"#\($0)" }.joined(separator: "  ")
         self.contentsImageView.kf.setImage(with: URL(string: EndPoint.imageURL+data.backdropPath))
-        self.dateLabel.text = data.releaseDate
-        self.titleLabel.text = data.title
+        self.dateLabel.text = data.releaseDate ?? data.firstAirDate
+        self.titleLabel.text = data.title ?? data.name
         self.overviewLabel.text = data.overview
     }
 }

@@ -10,7 +10,7 @@ import Kingfisher
 
 final class CreditViewController: UIViewController {
     
-    var movieDetail: Movie?
+    var contensDetail: Contents?
     
     private var castList: [Cast] = []
     private var overviewIsOpened = false
@@ -26,11 +26,11 @@ final class CreditViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        update(data: movieDetail)
-        callCastRequest()
+        update(data: contensDetail)
+        callCastRequest(mediaType: contensDetail?.mediaType)
     }
     
-    private func update(data: Movie?) {
+    private func update(data: Contents?) {
         guard let data else { return }
         
         backdropImageView.kf.setImage(with: URL(string: EndPoint.imageURL + data.backdropPath))
@@ -38,15 +38,26 @@ final class CreditViewController: UIViewController {
         nameLabel.text = data.title
     }
     
-    private func callCastRequest() {
-        guard let movieID = movieDetail?.id else { return }
+    private func callCastRequest(mediaType: MediaType?) {
+        guard let mediaType else { return }
+        guard let id = contensDetail?.id else { return }
         
-        APIManager.shared.request(.credit(path: Int32(movieID)), responseType: CreditResponse.self) { result in
+        var request: TMDBRequest {
+            switch mediaType {
+            case .movie:
+                return .movieCredit(path: id)
+            case .tv:
+                return .tvCredit(path: id)
+            }
+        }
+        guard let movieID = contensDetail?.id else { return }
+        
+        APIManager.shared.request(request, responseType: CreditResponse.self) { [weak self] result in
             switch result {
             case .success(let data):
                 guard let castList = data.cast else { return }
-                self.castList = castList
-                self.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+                self?.castList = castList
+                self?.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
             case .failure(let error):
                 print(error)
             }
@@ -83,11 +94,11 @@ extension CreditViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OverviewCell.identifier, for: indexPath) as? OverviewCell else { return UITableViewCell() }
             
-            cell.update(data: movieDetail?.overview, opened: overviewIsOpened)
+            cell.update(data: contensDetail?.overview, opened: overviewIsOpened)
             
-            cell.overviewSectionReload = {
-                self.overviewIsOpened.toggle()
-                tableView.reloadRows(at: [indexPath], with: .automatic)
+            cell.overviewSectionReload = { [weak self] in
+                self?.overviewIsOpened.toggle()
+                self?.tableView.reloadRows(at: [indexPath], with: .automatic)
             }
             
             return cell

@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Responses
 
 struct TrendingResponse: Codable {
-    let results: [Movie]
+    let results: [Contents]
 }
 
 struct CreditResponse: Codable {
