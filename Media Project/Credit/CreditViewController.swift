@@ -13,6 +13,7 @@ final class CreditViewController: UIViewController {
     var movieDetail: Movie?
     
     private var castList: [Cast] = []
+    private var overviewIsOpened = false
     
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var posterImageView: UIImageView!
@@ -82,10 +83,12 @@ extension CreditViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OverviewCell.identifier, for: indexPath) as? OverviewCell else { return UITableViewCell() }
             
+            cell.update(data: movieDetail?.overview, opened: overviewIsOpened)
+            
             cell.overviewSectionReload = {
+                self.overviewIsOpened.toggle()
                 tableView.reloadRows(at: [indexPath], with: .automatic)
             }
-            cell.update(data: movieDetail?.overview)
             
             return cell
         case 1:
