@@ -20,10 +20,10 @@ class HeaderSeriesCollectionReusableView: UICollectionReusableView {
         episodeCountLabel.textColor = .darkGray
     }
     
-    func update(data: Season) {
-        posterImageView.kf.setImage(with: URL(string: EndPoint.imageURL + data.posterPath))
-        titleLabel.text = data.name
-        episodeCountLabel.text = "에피소드: \(data.episodeCount) 회"
+    func update(data: Season?) {
+        posterImageView.kf.setImage(with: data?.imageURL)
+        titleLabel.text = data?.name
+        episodeCountLabel.text = data?.title
     }
     
 }

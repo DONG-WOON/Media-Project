@@ -9,7 +9,10 @@ import Foundation
 
 // MARK: - Contents
 
+// ⭐️ TO DO: 연산프로퍼티 추가. ⭐️
+
 struct Contents: Codable {
+    // Movie
     let adult: Bool
     let belongsToCollection: [Contents]?
     let backdropPath: String
@@ -21,11 +24,8 @@ struct Contents: Codable {
     let posterPath: String
     let mediaType: MediaType?
     let genreIDS: [Int]?
-    var genre: [String] {
-        guard let genreIDS else { return [] }
-        return genreIDS.map { genreList[$0] ?? "" }
-    }
   
+    // TV
     let originalName: String?
     let firstAirDate: String?
     let name: String?
@@ -33,6 +33,13 @@ struct Contents: Codable {
     let voteAverage: Double
     let numberOfEpisodes, numberOfSeasons: Int?
     let seasons: [Season]?
+    
+    var genre: [String] {
+        guard let genreIDS else { return [] }
+        return genreIDS.map { genreList[$0] ?? "" }
+    }
+    
+    
     
     enum CodingKeys: String, CodingKey {
         case adult
@@ -58,23 +65,6 @@ struct Contents: Codable {
 enum MediaType: String, Codable {
     case movie = "movie"
     case tv = "tv"
-}
-
-struct Season: Codable {
-    let airDate: String?
-    let episodeCount, id: Int
-    let name, overview, posterPath: String
-    let seasonNumber: Int
-    let voteAverage: Double
-
-    enum CodingKeys: String, CodingKey {
-        case airDate = "air_date"
-        case episodeCount = "episode_count"
-        case id, name, overview
-        case posterPath = "poster_path"
-        case seasonNumber = "season_number"
-        case voteAverage = "vote_average"
-    }
 }
 
 let genreList = [

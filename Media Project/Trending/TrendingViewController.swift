@@ -13,7 +13,7 @@ final class TrendingViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
 
-    @Published var currentTitle = Category.all.title
+    @Published var currentTitle = ContentsCategory.all.title
     
     lazy var categoryButton = UIBarButtonItem(image: UIImage(systemName: "list.bullet"))
     private var anyCancellable = Set<AnyCancellable>()
@@ -45,25 +45,25 @@ final class TrendingViewController: UIViewController {
     
     private func setCategoryButton() {
         categoryButton.menu = UIMenu(children: [
-            UIAction(title: Category.all.title) { [weak self] action in
-                guard self?.currentTitle != Category.all.title else { return }
-                self?.currentTitle = "\(Category.all.title) Trending"
+            UIAction(title: ContentsCategory.all.title) { [weak self] action in
+                guard self?.currentTitle != ContentsCategory.all.title else { return }
+                self?.currentTitle = "\(ContentsCategory.all.title) Trending"
                 self?.callTrendingRequest(.all)
             },
-            UIAction(title: Category.movie.title) { [weak self] action in
-                guard self?.currentTitle != Category.movie.title else { return }
-                self?.currentTitle = "\(Category.movie.title) Trending"
+            UIAction(title: ContentsCategory.movie.title) { [weak self] action in
+                guard self?.currentTitle != ContentsCategory.movie.title else { return }
+                self?.currentTitle = "\(ContentsCategory.movie.title) Trending"
                 self?.callTrendingRequest(.movie)
             },
-            UIAction(title: Category.tv.rawValue) { [weak self] action in
-                guard self?.currentTitle != Category.tv.title else { return }
-                self?.currentTitle = "\(Category.tv.title) Trending"
+            UIAction(title: ContentsCategory.tv.rawValue) { [weak self] action in
+                guard self?.currentTitle != ContentsCategory.tv.title else { return }
+                self?.currentTitle = "\(ContentsCategory.tv.title) Trending"
                 self?.callTrendingRequest(.tv)
             }
         ])
     }
     
-    func callTrendingRequest(_ category: Category) {
+    func callTrendingRequest(_ category: ContentsCategory) {
         isLoading = true
         
         var request: TMDBRequest {
@@ -81,6 +81,7 @@ final class TrendingViewController: UIViewController {
                 self?.tableView.reloadData()
                 self?.isLoading = false
                 self?.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                //center vertically 
             case .failure(let error):
                 print(error)
             }

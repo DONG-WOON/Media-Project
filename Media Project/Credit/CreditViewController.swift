@@ -25,6 +25,7 @@ final class CreditViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
         if contentsDetail?.mediaType == .tv {
             navigationItem.rightBarButtonItem = goToSeriesVCButton
         }

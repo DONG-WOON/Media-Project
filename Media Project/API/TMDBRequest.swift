@@ -25,6 +25,7 @@ enum TMDBRequest: URLRequestConvertible {
     
     // Season
     case tvSeason(path: Int32, queryItems: [URLQueryItem]? = nil)
+    case tvSeasonDetail(id: Int32, seasonNumber: Int, queryItems: [URLQueryItem]? = nil)
 }
 
 extension TMDBRequest {
@@ -37,6 +38,7 @@ extension TMDBRequest {
         case .movieCredit: return .get
         case .tvCredit: return .get
         case .tvSeason: return .get
+        case .tvSeasonDetail: return .get
         }
     }
     
@@ -65,6 +67,8 @@ extension TMDBRequest {
             // Season
         case .tvSeason(let id, _):
             return "/tv/\(id)"
+        case .tvSeasonDetail(let id,let seasonNumber, _):
+            return "/tv/\(id)/season/\(seasonNumber)"
         }
         
     }
@@ -94,6 +98,9 @@ extension TMDBRequest {
             guard let queryItems else { return defaultQueryItem }
             return defaultQueryItem + queryItems
         case .tvSeason(_, let queryItems):
+            guard let queryItems else { return defaultQueryItem }
+            return defaultQueryItem + queryItems
+        case .tvSeasonDetail(_, _, let queryItems):
             guard let queryItems else { return defaultQueryItem }
             return defaultQueryItem + queryItems
         }
