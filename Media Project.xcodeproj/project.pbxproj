@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		725F8D9A2A8FBD7D009462D0 /* CollectionViewConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725F8D992A8FBD7D009462D0 /* CollectionViewConfigurable.swift */; };
 		72AC18382A8CDEC200E9246E /* ContentsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC18372A8CDEC200E9246E /* ContentsCategory.swift */; };
 		72AC183A2A8CFBE000E9246E /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC18392A8CFBE000E9246E /* SeriesViewController.swift */; };
 		72AC183F2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC183D2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		725F8D992A8FBD7D009462D0 /* CollectionViewConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewConfigurable.swift; sourceTree = "<group>"; };
 		72AC18372A8CDEC200E9246E /* ContentsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsCategory.swift; sourceTree = "<group>"; };
 		72AC18392A8CFBE000E9246E /* SeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewController.swift; sourceTree = "<group>"; };
 		72AC183D2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSeriesCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				72C406192A8761CA0044C891 /* Identifiable.swift */,
 				72AC185A2A8F60BE00E9246E /* PlaceholderProtocol.swift */,
+				725F8D992A8FBD7D009462D0 /* CollectionViewConfigurable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				72AC183F2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift in Sources */,
 				72C4062C2A87B6B60044C891 /* OverviewCell.swift in Sources */,
 				72C4061A2A8761CA0044C891 /* Identifiable.swift in Sources */,
+				725F8D9A2A8FBD7D009462D0 /* CollectionViewConfigurable.swift in Sources */,
 				72C406032A8632040044C891 /* TMDBRequest.swift in Sources */,
 				72AC18462A8CFE1A00E9246E /* SeriesCompositionalLayout.swift in Sources */,
 				72C4061F2A87781E0044C891 /* Contents.swift in Sources */,
