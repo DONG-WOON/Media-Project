@@ -7,6 +7,5 @@
 
 import UIKit
 
-extension UIViewController: Identifiable {
-    
-}
+extension UIViewController: Identifiable { }
+extension UIViewController: PlaceholderProtocol { }

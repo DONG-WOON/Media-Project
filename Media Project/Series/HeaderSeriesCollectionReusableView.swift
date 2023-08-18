@@ -21,7 +21,7 @@ class HeaderSeriesCollectionReusableView: UICollectionReusableView {
     }
     
     func update(data: Season?) {
-        posterImageView.kf.setImage(with: data?.imageURL)
+        posterImageView.kf.setImage(with: data?.imageURL, placeholder: contentsPlaceholder)
         titleLabel.text = data?.name
         episodeCountLabel.text = data?.title
     }

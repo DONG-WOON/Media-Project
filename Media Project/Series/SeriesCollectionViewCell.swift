@@ -30,7 +30,7 @@ class SeriesCollectionViewCell: UICollectionViewCell {
     
     func update(data: Episode?) {
         guard let data else { return }
-        imageView.kf.setImage(with: data.imagePath, placeholder: UIImage(named: ""))
+        imageView.kf.setImage(with: data.imagePath, placeholder: contentsPlaceholder)
         titleLabel.text = data.title
         overviewLabel.text = data.subTitle
     }

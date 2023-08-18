@@ -20,7 +20,7 @@ final class CastCell: UITableViewCell {
     }
 
     func update(data: Cast) {
-        profileImageView.kf.setImage(with: URL(string: EndPoint.imageURL + (data.profilePath ?? "")))
+        profileImageView.kf.setImage(with: data.profileImageURL, placeholder: personPlaceholder)
         nameLabel.text = data.originalName
         characterLabel.text = data.character
     }

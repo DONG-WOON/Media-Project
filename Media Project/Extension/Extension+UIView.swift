@@ -7,14 +7,14 @@
 
 import UIKit
 
-extension UIView: Identifiable {
+extension UIView {
     
     enum Direction {
         case top
         case left
         case right
         case bottom
-        case  all
+        case all
     }
     
     func rounded(radius: CGFloat = 10, direction: Direction) {
@@ -40,3 +40,5 @@ extension UIView: Identifiable {
         self.layer.shadowOpacity = 0.7
     }
 }
+extension UIView: Identifiable { }
+extension UIView: PlaceholderProtocol { }

@@ -37,8 +37,8 @@ final class CreditViewController: UIViewController {
     private func update(data: Contents?) {
         guard let data else { return }
         
-        backdropImageView.kf.setImage(with: URL(string: EndPoint.imageURL + data.backdropPath))
-        posterImageView.kf.setImage(with: URL(string: EndPoint.imageURL + data.posterPath))
+        backdropImageView.kf.setImage(with: data.backdropURL, placeholder: contentsPlaceholder)
+        posterImageView.kf.setImage(with: data.posterURL, placeholder: contentsPlaceholder)
         nameLabel.text = data.title
     }
     

@@ -36,8 +36,8 @@ final class TMDBContentsTableViewCell: UITableViewCell {
     }
     
     func update(data: Contents) {
-        self.categoryLabel.text = data.genre.map {"#\($0)" }.joined(separator: "  ")
-        self.contentsImageView.kf.setImage(with: URL(string: EndPoint.imageURL+data.backdropPath))
+        self.categoryLabel.text = data.genreDescription
+        self.contentsImageView.kf.setImage(with: data.backdropURL, placeholder: contentsPlaceholder)
         self.dateLabel.text = data.releaseDate ?? data.firstAirDate
         self.titleLabel.text = data.title ?? data.name
         self.overviewLabel.text = data.overview
