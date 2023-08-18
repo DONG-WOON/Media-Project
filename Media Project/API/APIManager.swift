@@ -12,7 +12,7 @@ protocol URLRequestable {
     
     static var shared: URLRequestable { get }
     
-    func request<T:Codable>(_ request: TMDBRequest, responseType: T.Type, completion: @escaping (Result<T, AFError>) -> Void)
+    func request<T:Codable>(_ request: TMDBRequest, responseType: T.Type, onSuccess: @escaping (T) -> Void, onFailure: @escaping (AFError) -> Void)
 }
 
 class APIManager: URLRequestable {
@@ -21,13 +21,13 @@ class APIManager: URLRequestable {
     
     private init() { }
     
-    func request<T: Codable>(_ request: TMDBRequest, responseType: T.Type, completion: @escaping (Result<T, AFError>) -> Void) {
+    func request<T: Codable>(_ request: TMDBRequest, responseType: T.Type, onSuccess: @escaping (T) -> Void, onFailure: @escaping (AFError) -> Void) {
         AF.request(request).responseDecodable(of: T.self) { response in
             switch response.result {
             case .success(let response):
-                completion(.success(response))
+                onSuccess(response)
             case .failure(let error):
-                completion(.failure(error))
+                onFailure(error)
             }
         }
     }

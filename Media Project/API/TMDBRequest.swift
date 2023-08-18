@@ -70,7 +70,6 @@ extension TMDBRequest {
         case .tvSeasonDetail(let id,let seasonNumber, _):
             return "/tv/\(id)/season/\(seasonNumber)"
         }
-        
     }
     
     var queryItems: [URLQueryItem] {
@@ -91,12 +90,14 @@ extension TMDBRequest {
         case .tvTrending(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
             return defaultQueryItem + queryItems
+            
         case .movieCredit(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
             return defaultQueryItem + queryItems
         case .tvCredit(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
             return defaultQueryItem + queryItems
+            
         case .tvSeason(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
             return defaultQueryItem + queryItems

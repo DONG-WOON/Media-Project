@@ -45,7 +45,7 @@ final class CreditViewController: UIViewController {
     private func callCastRequest(mediaType: MediaType?) {
         guard let mediaType else { return }
         guard let id = contentsDetail?.id else { return }
-        
+
         var request: TMDBRequest {
             switch mediaType {
             case .movie:
@@ -54,17 +54,12 @@ final class CreditViewController: UIViewController {
                 return .tvCredit(path: id)
             }
         }
-        guard let movieID = contentsDetail?.id else { return }
         
-        APIManager.shared.request(request, responseType: CreditResponse.self) { [weak self] result in
-            switch result {
-            case .success(let data):
-                guard let castList = data.cast else { return }
-                self?.castList = castList
-                self?.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
-            case .failure(let error):
-                print(error)
-            }
+        APIManager.shared.request(request, responseType: CreditResponse.self) { [weak self] data in
+            guard let castList = data.cast else { return }
+            self?.castList = castList
+        } onFailure: { error in
+            print(error)
         }
     }
     

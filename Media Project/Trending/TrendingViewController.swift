@@ -74,17 +74,14 @@ final class TrendingViewController: UIViewController {
             }
         }
         
-        APIManager.shared.request(request, responseType: TrendingResponse.self) { [weak self] result in
-            switch result {
-            case .success(let data):
-                self?.contentsList = data.results
-                self?.tableView.reloadData()
-                self?.isLoading = false
-                self?.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-                //center vertically 
-            case .failure(let error):
-                print(error)
-            }
+        APIManager.shared.request(request, responseType: TrendingResponse.self) { [weak self] data in
+            guard let self else { return }
+            self.contentsList = data.results
+            self.tableView.reloadData()
+            self.isLoading = false
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        } onFailure: { error in
+            print(error)
         }
     }
 }

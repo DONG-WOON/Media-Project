@@ -24,16 +24,15 @@ class SeriesViewController: UIViewController {
         
         setCollectionView()
     
-        dispatchGroup.enter()
-        
         // ⭐️ Q: 데이터가 많을 경우 pagenation을 제공해야하지않을까? ⭐️
+        dispatchGroup.enter()
+
         self.callTVSeasonRequest() { seasons in
             for season in seasons {
                 self.dispatchGroup.enter()
                 self.callTVSeasonDetailRequest(seasonNumber: season.seasonNumber)
             }
         }
-        
         
         dispatchGroup.notify(queue: .main) {
             self.collectionView.reloadData()
@@ -44,18 +43,16 @@ class SeriesViewController: UIViewController {
         guard let id else { return }
         
         DispatchQueue.global().async(group: dispatchGroup) {
-            APIManager.shared.request(.tvSeason(path: id), responseType: Contents.self) { [weak self] result in
-                switch result {
-                case .success(let contents):
-                    guard let self else { return }
-                    guard let seasons = contents.seasons else { return }
-                    let sortedSeasons = seasons.sorted(by: { $0.seasonNumber < $1.seasonNumber } )
-                    self.seasons = sortedSeasons
-                    completion(sortedSeasons)
-                    self.dispatchGroup.leave()
-                case .failure(let error):
-                    print(error)
-                }
+            APIManager.shared.request(.tvSeason(path: id), responseType: Contents.self) { [weak self] contents in
+                guard let self else { return }
+                guard let seasons = contents.seasons else { return }
+                let sortedSeasons = seasons.sorted(by: { $0.seasonNumber < $1.seasonNumber } )
+                
+                self.seasons = sortedSeasons
+                completion(sortedSeasons)
+                self.dispatchGroup.leave()
+            } onFailure: { error in
+                print(error)
             }
         }
     }
@@ -64,17 +61,14 @@ class SeriesViewController: UIViewController {
         guard let id else { return }
     
         DispatchQueue.global().async(group: dispatchGroup) {
-            APIManager.shared.request(.tvSeasonDetail(id: id, seasonNumber: seasonNumber), responseType: Season.self) { [weak self] result in
-                switch result {
-                case .success(let season):
-                    guard let self else { return }
-                    guard let episodes = season.episodes else { return }
-                    print("✅ ",seasonNumber)
-                    self.episodes.append(episodes)
-                    self.dispatchGroup.leave()
-                case .failure(let error):
-                    print(error)
-                }
+            APIManager.shared.request(.tvSeasonDetail(id: id, seasonNumber: seasonNumber), responseType: Season.self) { [weak self] season in
+                guard let self else { return }
+                guard let episodes = season.episodes else { return }
+              
+                self.episodes.append(episodes)
+                self.dispatchGroup.leave()
+            } onFailure: { error in
+                print(error)
             }
         }
     }
@@ -87,7 +81,6 @@ extension SeriesViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("🔥 ",section)
         return episodes[section].count
     }
     
