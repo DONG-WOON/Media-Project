@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		725F8D9A2A8FBD7D009462D0 /* CollectionViewConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725F8D992A8FBD7D009462D0 /* CollectionViewConfigurable.swift */; };
+		725F8DA32A927240009462D0 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725F8DA22A927240009462D0 /* Video.swift */; };
 		72AC18382A8CDEC200E9246E /* ContentsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC18372A8CDEC200E9246E /* ContentsCategory.swift */; };
 		72AC183A2A8CFBE000E9246E /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC18392A8CFBE000E9246E /* SeriesViewController.swift */; };
 		72AC183F2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC183D2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		725F8D992A8FBD7D009462D0 /* CollectionViewConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewConfigurable.swift; sourceTree = "<group>"; };
+		725F8DA22A927240009462D0 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		72AC18372A8CDEC200E9246E /* ContentsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsCategory.swift; sourceTree = "<group>"; };
 		72AC18392A8CFBE000E9246E /* SeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewController.swift; sourceTree = "<group>"; };
 		72AC183D2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSeriesCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -138,9 +140,7 @@
 				72C406222A8778470044C891 /* Protocol */,
 				72C406212A8778390044C891 /* API */,
 				72C406062A8643B80044C891 /* Extension */,
-				72C405FC2A8630E10044C891 /* EndPoint.swift */,
 				72AC18582A8F5FB400E9246E /* Resource.swift */,
-				72C405FE2A8630E90044C891 /* APIKEY.swift */,
 				72C405F82A862FED0044C891 /* .gitignore */,
 				72C405E62A862E2E0044C891 /* Main.storyboard */,
 				72C405E92A862E310044C891 /* Assets.xcassets */,
@@ -165,6 +165,7 @@
 			children = (
 				72C4060C2A8747D00044C891 /* Responses.swift */,
 				72C4061E2A87781E0044C891 /* Contents.swift */,
+				725F8DA22A927240009462D0 /* Video.swift */,
 				72AC18372A8CDEC200E9246E /* ContentsCategory.swift */,
 				72AC18492A8DB87400E9246E /* Season.swift */,
 				72C406242A8787540044C891 /* Cast.swift */,
@@ -175,6 +176,8 @@
 		72C406212A8778390044C891 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				72C405FC2A8630E10044C891 /* EndPoint.swift */,
+				72C405FE2A8630E90044C891 /* APIKEY.swift */,
 				72C4060A2A8744270044C891 /* APIManager.swift */,
 				72C406022A8632040044C891 /* TMDBRequest.swift */,
 				72C4060E2A8748A30044C891 /* TMDBError.swift */,
@@ -318,6 +321,7 @@
 				725F8D9A2A8FBD7D009462D0 /* CollectionViewConfigurable.swift in Sources */,
 				72C406032A8632040044C891 /* TMDBRequest.swift in Sources */,
 				72AC18462A8CFE1A00E9246E /* SeriesCompositionalLayout.swift in Sources */,
+				725F8DA32A927240009462D0 /* Video.swift in Sources */,
 				72C4061F2A87781E0044C891 /* Contents.swift in Sources */,
 				72C406182A8761270044C891 /* Extension+UIView.swift in Sources */,
 				72C406272A87B6830044C891 /* CreditViewController.swift in Sources */,

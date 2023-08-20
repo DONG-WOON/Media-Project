@@ -34,11 +34,6 @@ struct Contents: Codable {
     let numberOfEpisodes, numberOfSeasons: Int?
     let seasons: [Season]?
     
-//    var genre: [String] {
-//        guard let genreIDS else { return [] }
-//        return genreIDS.map { genreList[$0] ?? "" }
-//    }
-    
     var genreDescription: String {
         guard let genreIDS else { return String() }
         return genreIDS.map { "#" + (genreList[$0] ?? String()) }.joined(separator: " ")

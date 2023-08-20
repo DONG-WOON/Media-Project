@@ -26,6 +26,14 @@ enum TMDBRequest: URLRequestConvertible {
     // Season
     case tvSeason(path: Int32, queryItems: [URLQueryItem]? = nil)
     case tvSeasonDetail(id: Int32, seasonNumber: Int, queryItems: [URLQueryItem]? = nil)
+    
+    // Similar
+    case movieSimilar(path: Int32, queryItems: [URLQueryItem]? = nil)
+    case tvSimilar(path: Int32, queryItems: [URLQueryItem]? = nil)
+    
+    // Videos
+    case movieVideos(path: Int32, queryItems: [URLQueryItem]? = nil)
+    case tvVideos(path: Int32, queryItems: [URLQueryItem]? = nil)
 }
 
 extension TMDBRequest {
@@ -39,6 +47,10 @@ extension TMDBRequest {
         case .tvCredit: return .get
         case .tvSeason: return .get
         case .tvSeasonDetail: return .get
+        case .movieSimilar: return .get
+        case .tvSimilar: return .get
+        case .movieVideos: return .get
+        case .tvVideos: return .get
         }
     }
     
@@ -69,6 +81,18 @@ extension TMDBRequest {
             return "/tv/\(id)"
         case .tvSeasonDetail(let id,let seasonNumber, _):
             return "/tv/\(id)/season/\(seasonNumber)"
+            
+            // Similar
+        case .movieSimilar(let id, _):
+            return "/movie/\(id)/similar"
+        case .tvSimilar(let id, _):
+            return "/tv/\(id)/similar"
+            
+            // videos
+        case .movieVideos(let id, _):
+            return "movie/\(id)/videos"
+        case .tvVideos(let id, _):
+            return "tv/\(id)/videos"
         }
     }
     
@@ -78,7 +102,6 @@ extension TMDBRequest {
             URLQueryItem(name: "api_key", value: APIKEY.key),
             URLQueryItem(name: "language", value: "ko-KR")
         ]
-        
         
         switch self {
         case .allTrending(_, let queryItems):
@@ -104,6 +127,21 @@ extension TMDBRequest {
         case .tvSeasonDetail(_, _, let queryItems):
             guard let queryItems else { return defaultQueryItem }
             return defaultQueryItem + queryItems
+            
+        case .movieSimilar(_, let queryItems):
+            guard let queryItems else { return defaultQueryItem }
+            return defaultQueryItem + queryItems
+        case .tvSimilar(_, let queryItems):
+            guard let queryItems else { return defaultQueryItem }
+            return defaultQueryItem + queryItems
+            
+        case .movieVideos(_, let queryItems):
+            guard let queryItems else { return defaultQueryItem }
+            return defaultQueryItem + queryItems
+        case .tvVideos(_, let queryItems):
+            guard let queryItems else { return defaultQueryItem }
+            return defaultQueryItem + queryItems
+            
         }
     }
     
