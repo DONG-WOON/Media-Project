@@ -15,6 +15,10 @@ struct Video: Codable {
     let type: String
     let official: Bool
     let id: String
+    
+    var thumbnailPath: URL? {
+        return URL(string: "https://img.youtube.com/vi/\(key)/0.jpg")
+    }
 
     enum CodingKeys: String, CodingKey {
         case language = "iso_639_1"

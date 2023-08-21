@@ -15,13 +15,13 @@ struct Contents: Codable {
     // Movie
     let adult: Bool
     let belongsToCollection: [Contents]?
-    let backdropPath: String
+    let backdropPath: String?
     let id: Int32
     let title: String?
     let originalLanguage: String
     let originalTitle: String?
     let overview: String?
-    let posterPath: String
+    let posterPath: String?
     let mediaType: MediaType?
     let genreIDS: [Int]?
   
@@ -40,11 +40,11 @@ struct Contents: Codable {
     }
     
     var posterURL: URL? {
-        return URL(string: EndPoint.imageURL + posterPath)
+        return URL(string: EndPoint.imageURL + (posterPath ?? ""))
     }
     
     var backdropURL: URL? {
-        return URL(string: EndPoint.imageURL + backdropPath)
+        return URL(string: EndPoint.imageURL + (backdropPath ?? ""))
     }
     
     

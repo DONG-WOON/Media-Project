@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SeriesCompositionalLayout: UICollectionViewCompositionalLayout {
+final class SeriesCompositionalLayout: UICollectionViewCompositionalLayout {
     init() {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                              heightDimension: .fractionalHeight(1.0))

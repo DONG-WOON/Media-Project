@@ -14,7 +14,9 @@ final class CreditViewController: UIViewController {
     
     private var castList: [Cast] = []
     private var overviewIsOpened = false
-    private lazy var goToSeriesVCButton = UIBarButtonItem(title: "Series", image: UIImage(systemName: "list.bullet.below.rectangle"), target: self, action: #selector(goToSeriesVC))
+    private lazy var goToSeriesVCButton = UIBarButtonItem(image: UIImage(systemName: "list.bullet.below.rectangle"), style: .plain, target: self, action: #selector(goToSeriesVC))
+    private lazy var gotoRecommendationVCButton = UIBarButtonItem(image: UIImage(systemName: "hand.thumbsup.circle"), style: .plain, target: self, action: #selector(gotoRecommendationVC))
+    
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -26,8 +28,10 @@ final class CreditViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        navigationItem.rightBarButtonItem = gotoRecommendationVCButton
+        
         if contentsDetail?.mediaType == .tv {
-            navigationItem.rightBarButtonItem = goToSeriesVCButton
+            navigationItem.rightBarButtonItems?.append(goToSeriesVCButton)
         }
         
         update(data: contentsDetail)
@@ -58,6 +62,7 @@ final class CreditViewController: UIViewController {
         APIManager.shared.request(request, responseType: CreditResponse.self) { [weak self] data in
             guard let castList = data.cast else { return }
             self?.castList = castList
+            self?.tableView.reloadData()
         } onFailure: { error in
             print(error)
         }
@@ -67,6 +72,17 @@ final class CreditViewController: UIViewController {
     private func goToSeriesVC() {
         guard let vc = storyboard?.instantiateViewController(identifier: SeriesViewController.identifier) as? SeriesViewController else { return }
         vc.id = contentsDetail?.id
+
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    private func gotoRecommendationVC() {
+        guard let vc = storyboard?.instantiateViewController(identifier: RecommendationViewController.identifier) as? RecommendationViewController else { return }
+        vc.id = contentsDetail?.id
+        
+        guard let mediaType = contentsDetail?.mediaType else { return }
+        vc.mediaType = mediaType
         navigationController?.pushViewController(vc, animated: true)
     }
 }
