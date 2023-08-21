@@ -49,7 +49,7 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="blX-gi-roc">
                                                             <rect key="frame" x="0.0" y="0.0" width="353" height="229.33333333333334"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mK1-vu-Ag4">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mK1-vu-Ag4">
                                                             <rect key="frame" x="15.000000000000002" y="244.33333333333331" width="31.666666666666671" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="yFF-yM-3Kf"/>
@@ -88,6 +88,12 @@
                                                                 <constraint firstAttribute="width" constant="20" id="SLL-iu-m79"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90g-r4-2Et">
+                                                            <rect key="frame" x="66.666666666666671" y="244.33333333333331" width="38" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
@@ -99,12 +105,14 @@
                                                         <constraint firstItem="mK1-vu-Ag4" firstAttribute="top" secondItem="blX-gi-roc" secondAttribute="bottom" constant="15" id="MPF-Mj-tAD"/>
                                                         <constraint firstAttribute="trailing" secondItem="kO9-el-8RU" secondAttribute="trailing" constant="7" id="Q2U-C2-OXT"/>
                                                         <constraint firstAttribute="trailing" secondItem="blX-gi-roc" secondAttribute="trailing" id="Q7d-v8-vHt"/>
+                                                        <constraint firstItem="90g-r4-2Et" firstAttribute="centerY" secondItem="mK1-vu-Ag4" secondAttribute="centerY" id="RGK-6Q-QRH"/>
                                                         <constraint firstItem="HJq-Lc-Xkl" firstAttribute="leading" secondItem="PV6-XE-q4C" secondAttribute="leading" constant="15" id="XAB-XQ-w1P"/>
-                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mK1-vu-Ag4" secondAttribute="trailing" constant="15" id="ZAE-Wp-NY5"/>
                                                         <constraint firstItem="ezJ-Al-yzT" firstAttribute="leading" secondItem="PV6-XE-q4C" secondAttribute="leading" constant="15" id="ZCX-Wt-vgS"/>
                                                         <constraint firstItem="HJq-Lc-Xkl" firstAttribute="top" secondItem="ezJ-Al-yzT" secondAttribute="bottom" constant="15" id="ZZJ-K6-cSu"/>
                                                         <constraint firstAttribute="trailing" secondItem="WmT-dg-BTw" secondAttribute="trailing" constant="15" id="a3O-IK-c0s"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="90g-r4-2Et" secondAttribute="trailing" constant="15" id="cnN-ab-2pL"/>
                                                         <constraint firstItem="mK1-vu-Ag4" firstAttribute="leading" secondItem="PV6-XE-q4C" secondAttribute="leading" constant="15" id="cvF-Wa-pjZ"/>
+                                                        <constraint firstItem="90g-r4-2Et" firstAttribute="leading" secondItem="mK1-vu-Ag4" secondAttribute="trailing" constant="20" id="dpW-v5-l31"/>
                                                         <constraint firstItem="kO9-el-8RU" firstAttribute="centerY" secondItem="HJq-Lc-Xkl" secondAttribute="centerY" id="i8E-R2-ZUn"/>
                                                         <constraint firstAttribute="trailing" secondItem="ezJ-Al-yzT" secondAttribute="trailing" constant="15" id="j4A-cR-xTS"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="PV6-XE-q4C" secondAttribute="height" multiplier="1:1" id="kXr-oE-PE1"/>
@@ -132,6 +140,7 @@
                                             <outlet property="contentsBackground" destination="PV6-XE-q4C" id="Ref-r6-jPO"/>
                                             <outlet property="contentsImageView" destination="blX-gi-roc" id="hAa-je-hfW"/>
                                             <outlet property="dateLabel" destination="0IW-gJ-OHA" id="4bI-1i-fKV"/>
+                                            <outlet property="originalTitleLabel" destination="90g-r4-2Et" id="yu7-Wz-fTQ"/>
                                             <outlet property="overviewLabel" destination="WmT-dg-BTw" id="qXK-Fh-2ie"/>
                                             <outlet property="titleLabel" destination="mK1-vu-Ag4" id="GiW-8Z-6R8"/>
                                         </connections>

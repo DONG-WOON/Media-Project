@@ -16,6 +16,7 @@ final class TMDBContentsTableViewCell: UITableViewCell {
     @IBOutlet weak var contentsImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var originalTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,5 +42,6 @@ final class TMDBContentsTableViewCell: UITableViewCell {
         self.dateLabel.text = data.releaseDate ?? data.firstAirDate
         self.titleLabel.text = data.title ?? data.name
         self.overviewLabel.text = data.overview
+        self.originalTitleLabel.text = data.originalTitle
     }
 }
