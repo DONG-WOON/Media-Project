@@ -39,6 +39,12 @@ extension UIView {
         self.layer.shadowRadius = radius
         self.layer.shadowOpacity = 0.7
     }
+    
+    convenience init(_ backgroundColor: UIColor) {
+        self.init()
+        
+        self.backgroundColor = backgroundColor
+    }
 }
 extension UIView: Identifiable { }
 extension UIView: PlaceholderProtocol { }

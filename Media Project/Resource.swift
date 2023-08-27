@@ -10,4 +10,5 @@ import Foundation
 enum Resource {
     static let personPlaceholder = "person_noImage"
     static let contentsPlaceholder = "contents_noImage"
+    static let isAlreadyLaunched = "isAlreadyLaunched"
 }
