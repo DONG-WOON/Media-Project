@@ -22,7 +22,7 @@ struct Contents: Codable {
     let originalTitle: String?
     let overview: String?
     let posterPath: String?
-    let mediaType: MediaType?
+    var mediaType: MediaType?
     let genreIDS: [Int]?
   
     // TV
@@ -70,7 +70,7 @@ struct Contents: Codable {
     }
 }
 
-enum MediaType: String, Codable {
+enum MediaType: String, Codable, CaseIterable {
     case movie = "movie"
     case tv = "tv"
 }

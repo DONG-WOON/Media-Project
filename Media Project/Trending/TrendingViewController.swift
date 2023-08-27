@@ -32,6 +32,8 @@ final class TrendingViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.register(UINib(nibName: TMDBContentsTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TMDBContentsTableViewCell.identifier)
+        
         navigationItem.leftBarButtonItem = categoryButton
         
         $currentTitle.sink { [weak self] title in
@@ -108,7 +110,7 @@ extension TrendingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let vc = storyboard?.instantiateViewController(identifier: CreditViewController.identifier) as? CreditViewController else { return }
+        guard let vc = loadViewController(type: CreditViewController.self) else { return }
         vc.contentsDetail = contentsList[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }

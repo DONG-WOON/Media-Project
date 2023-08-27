@@ -24,7 +24,7 @@ class TabBarController: UITabBarController {
         let trendingItem = UITabBarItem(title: "Trending", image: UIImage(systemName: "chart.line.uptrend.xyaxis"), selectedImage: UIImage(systemName: "chart.line.uptrend.xyaxis"))
         trending.tabBarItem = trendingItem
         
-        let search = SearchViewController()
+        let search = UINavigationController(rootViewController: SearchViewController())
         let searchItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), selectedImage: UIImage(systemName: "magnifyingglass"))
         search.tabBarItem = searchItem
         

@@ -34,6 +34,9 @@ enum TMDBRequest: URLRequestConvertible {
     // Videos
     case movieVideos(path: Int32, queryItems: [URLQueryItem]? = nil)
     case tvVideos(path: Int32, queryItems: [URLQueryItem]? = nil)
+    
+    // Search
+    case search(mediaType: MediaType, queryItems: [URLQueryItem]? = nil)
 }
 
 extension TMDBRequest {
@@ -51,6 +54,7 @@ extension TMDBRequest {
         case .tvSimilar: return .get
         case .movieVideos: return .get
         case .tvVideos: return .get
+        case .search: return .get
         }
     }
     
@@ -90,9 +94,14 @@ extension TMDBRequest {
             
             // videos
         case .movieVideos(let id, _):
-            return "movie/\(id)/videos"
+            return "/movie/\(id)/videos"
         case .tvVideos(let id, _):
-            return "tv/\(id)/videos"
+            return "/tv/\(id)/videos"
+        
+        
+            // Search
+        case .search(let mediaType, _):
+            return "/search/\(mediaType.rawValue)"
         }
     }
     
@@ -142,6 +151,9 @@ extension TMDBRequest {
             guard let queryItems else { return defaultQueryItem }
             return defaultQueryItem + queryItems
             
+        case .search(_, let queryItems):
+            guard let queryItems else { return defaultQueryItem }
+            return queryItems + defaultQueryItem
         }
     }
     
