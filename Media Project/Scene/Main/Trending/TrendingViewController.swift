@@ -10,9 +10,6 @@ import Combine
 
 final class TrendingViewController: UIViewController {
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var tableView: UITableView!
-
     @Published var currentTitle = ContentsCategory.all.title
     
     lazy var categoryButton = UIBarButtonItem(image: UIImage(systemName: "list.bullet"))
@@ -25,6 +22,9 @@ final class TrendingViewController: UIViewController {
     }
 
     var contentsList = [Contents]()
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
