@@ -11,7 +11,7 @@ class OnboardingOtherContentViewController: OnboardingContentViewController {
 
     let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "arrow.right")
+        imageView.image = UIImage(systemName: ImageKey.arrowRight)
         imageView.tintColor = .black
         imageView.clipsToBounds = true
         return imageView

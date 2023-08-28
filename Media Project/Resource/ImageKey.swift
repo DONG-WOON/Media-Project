@@ -10,4 +10,8 @@ import Foundation
 enum ImageKey {
     static let trending = "chart.line.uptrend.xyaxis"
     static let search = "magnifyingglass"
+    static let arrowRight = "arrow.right"
+    static let listBullet = "list.bullet"
+    static let listBulletRect = "list.bullet.below.rectangle"
+    static let thumbsup = "hand.thumbsup.circle"
 }

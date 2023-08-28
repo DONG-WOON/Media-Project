@@ -15,8 +15,8 @@ final class DetailViewController: UIViewController {
     private var castList: [Cast] = []
     private var overviewIsOpened = false
     
-    private lazy var goToSeriesVCButton = UIBarButtonItem(image: UIImage(systemName: "list.bullet.below.rectangle"), style: .plain, target: self, action: #selector(goToSeriesVC))
-    private lazy var gotoRecommendationVCButton = UIBarButtonItem(image: UIImage(systemName: "hand.thumbsup.circle"), style: .plain, target: self, action: #selector(gotoRecommendationVC))
+    private lazy var goToSeriesVCButton = UIBarButtonItem(image: UIImage(systemName: ImageKey.listBulletRect), style: .plain, target: self, action: #selector(goToSeriesVC))
+    private lazy var gotoRecommendationVCButton = UIBarButtonItem(image: UIImage(systemName: ImageKey.thumbsup), style: .plain, target: self, action: #selector(gotoRecommendationVC))
     
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var posterImageView: UIImageView!

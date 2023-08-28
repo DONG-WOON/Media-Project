@@ -18,10 +18,7 @@ class OnboardingContentViewController: UIViewController {
         setConstraints()
     }
     
-    func configureViews() {
-        
-    }
+    func configureViews() { }
     
-    func setConstraints() {
-    }
+    func setConstraints() { }
 }

@@ -25,6 +25,7 @@ class OnboardingContentView: UIView {
     
     convenience init(sceneName: SceneName) {
         self.init()
+        
         imageView.image = UIImage(named: sceneName.rawValue)
         titleLabel.text = sceneName.title
         

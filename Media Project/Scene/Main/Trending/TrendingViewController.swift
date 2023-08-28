@@ -12,7 +12,7 @@ final class TrendingViewController: UIViewController {
     
     @Published var currentTitle = ContentsCategory.all.title
     
-    lazy var categoryButton = UIBarButtonItem(image: UIImage(systemName: "list.bullet"))
+    lazy var categoryButton = UIBarButtonItem(image: UIImage(systemName: ImageKey.listBullet))
     private var anyCancellable = Set<AnyCancellable>()
     private var isLoading = false {
         didSet {
