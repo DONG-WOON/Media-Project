@@ -7,9 +7,14 @@
 
 import UIKit
 
-class OnboardingViewController: UIPageViewController {
+class OnboardingContainerViewController: UIPageViewController {
     
-    let list: [UIViewController] = [Trending(), Detail(), Search(), Recommendation()]
+    let list: [UIViewController] = [
+        OnboardingOtherContentViewController(sceneName: .trending),
+        OnboardingOtherContentViewController(sceneName: .detail),
+        OnboardingOtherContentViewController(sceneName: .search),
+        OnboardingLastContentViewController(sceneName: .recommendation)
+    ]
     
     override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
         super.init(transitionStyle: .scroll, navigationOrientation: navigationOrientation)
@@ -21,15 +26,14 @@ class OnboardingViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        delegate = self
+        
         dataSource = self
         
         setViewControllers([list.first!], direction: .forward, animated: true)
     }
 }
 
-extension OnboardingViewController: UIPageViewControllerDataSource {
+extension OnboardingContainerViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let currentIndex = list.firstIndex(of: viewController) else { return nil }
@@ -47,10 +51,3 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
         return nextIndex >= list.count ? nil : list[nextIndex]
     }
 }
-
-extension OnboardingViewController: UIPageViewControllerDelegate {
-
-}
-
-
-

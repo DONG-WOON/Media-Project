@@ -115,41 +115,41 @@ extension TMDBRequest {
         switch self {
         case .allTrending(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
-            return defaultQueryItem + queryItems
+            return queryItems + defaultQueryItem
         case .movieTrending(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
-            return defaultQueryItem + queryItems
+            return queryItems + defaultQueryItem
         case .tvTrending(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
-            return defaultQueryItem + queryItems
+            return queryItems + defaultQueryItem
             
         case .movieCredit(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
-            return defaultQueryItem + queryItems
+            return queryItems + defaultQueryItem
         case .tvCredit(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
-            return defaultQueryItem + queryItems
+            return queryItems + defaultQueryItem
             
         case .tvSeason(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
-            return defaultQueryItem + queryItems
+            return queryItems + defaultQueryItem
         case .tvSeasonDetail(_, _, let queryItems):
             guard let queryItems else { return defaultQueryItem }
-            return defaultQueryItem + queryItems
+            return queryItems + defaultQueryItem
             
         case .movieSimilar(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
-            return defaultQueryItem + queryItems
+            return queryItems + defaultQueryItem
         case .tvSimilar(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
-            return defaultQueryItem + queryItems
+            return queryItems + defaultQueryItem
             
         case .movieVideos(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
-            return defaultQueryItem + queryItems
+            return queryItems + defaultQueryItem
         case .tvVideos(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }
-            return defaultQueryItem + queryItems
+            return queryItems + defaultQueryItem
             
         case .search(_, let queryItems):
             guard let queryItems else { return defaultQueryItem }

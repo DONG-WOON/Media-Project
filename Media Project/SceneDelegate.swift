@@ -16,9 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let isAlreadyLaunched = UserDefaults.standard.bool(forKey: Resource.isAlreadyLaunched)
+        
+        let isAlreadyLaunched = UserDefaults.standard.bool(forKey: NameSpace.isAlreadyLaunched)
+        
         if !isAlreadyLaunched {
-            let vc = OnboardingViewController()
+            let vc = OnboardingContainerViewController()
             self.window?.rootViewController = vc
         } else {
             let tabBar = TabBarController()

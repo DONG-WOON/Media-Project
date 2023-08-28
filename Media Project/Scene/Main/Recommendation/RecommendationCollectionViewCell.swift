@@ -16,6 +16,7 @@ class RecommendationCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.font = .systemFont(ofSize: 14)
+        titleLabel.textAlignment = .center
     }
     
     override func prepareForReuse() {

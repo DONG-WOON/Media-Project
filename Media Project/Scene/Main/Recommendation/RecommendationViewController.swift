@@ -56,6 +56,7 @@ class RecommendationViewController: UIViewController {
     
     func callSimilarRequest(id: Int32, mediaType: MediaType) {
         dispatchGroup.enter()
+        
         var request: TMDBRequest {
             switch mediaType {
             case .movie:
@@ -65,7 +66,7 @@ class RecommendationViewController: UIViewController {
             }
         }
         
-        APIManager.shared.request(.movieSimilar(path: id), responseType: SimilarResponse.self) { response in
+        APIManager.shared.request(request, responseType: SimilarResponse.self) { response in
             let contentsList = response.results
             self.similarContentsList = contentsList
             self.dispatchGroup.leave()
