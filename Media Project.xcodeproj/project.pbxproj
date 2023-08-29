@@ -151,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				72685A122A9C833C00C79F69 /* Onboarding_Container */,
-				72685A132A9C834900C79F69 /* Onboarding_Content_Base */,
 				7268599D2A9B866000C79F69 /* Onboarding_Content */,
 				726859A62A9B8B8700C79F69 /* Components */,
 			);
@@ -161,6 +160,7 @@
 		7268599D2A9B866000C79F69 /* Onboarding_Content */ = {
 			isa = PBXGroup;
 			children = (
+				72685A132A9C834900C79F69 /* Onboarding_Content_Base */,
 				726859A42A9B871100C79F69 /* OnboardingLastContentViewController.swift */,
 				72685A182A9C8CD700C79F69 /* OnboardingOtherContentViewController.swift */,
 			);
