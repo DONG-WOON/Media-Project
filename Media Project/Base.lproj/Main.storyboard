@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
@@ -9,47 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Trending View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="TrendingViewController" id="BYZ-38-t0r" customClass="TrendingViewController" customModule="Media_Project" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lp6-ta-DPW">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="OGf-iK-0aK">
-                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="OGf-iK-0aK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ifj-tD-IFb"/>
-                            <constraint firstItem="OGf-iK-0aK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Me7-6U-ICb"/>
-                            <constraint firstItem="lp6-ta-DPW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SFY-d5-FfK"/>
-                            <constraint firstItem="lp6-ta-DPW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VFn-2U-MNe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lp6-ta-DPW" secondAttribute="bottom" id="bKb-w9-Ep7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lp6-ta-DPW" secondAttribute="trailing" id="beP-wx-67L"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="r46-xu-V7i"/>
-                    <connections>
-                        <outlet property="activityIndicator" destination="OGf-iK-0aK" id="YB7-I8-HfI"/>
-                        <outlet property="tableView" destination="lp6-ta-DPW" id="Crd-HA-KDS"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="704.58015267175574" y="-46.478873239436624"/>
-        </scene>
-        <!--Credit View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="4Gt-W7-3Kw">
             <objects>
-                <viewController storyboardIdentifier="CreditViewController" id="y0n-K1-Qzy" customClass="CreditViewController" customModule="Media_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="y0n-K1-Qzy" customClass="DetailViewController" customModule="Media_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="G6H-ZO-RE4">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

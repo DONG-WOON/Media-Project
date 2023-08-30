@@ -23,7 +23,7 @@ struct VideoResponse: Codable {
 }
 
 struct SimilarResponse: Codable {
-    let page: Int
+    let page: Int?
     let results: [Contents]
     let totalPages, totalResults: Int
 

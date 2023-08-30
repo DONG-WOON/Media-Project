@@ -14,9 +14,9 @@ protocol PlaceholderProtocol {
 
 extension PlaceholderProtocol {
     var contentsPlaceholder: UIImage? {
-        return UIImage(named: Resource.contentsPlaceholder)
+        return UIImage(named: NameSpace.contentsPlaceholder)
     }
     var personPlaceholder: UIImage? {
-        return UIImage(named: Resource.personPlaceholder)
+        return UIImage(named: NameSpace.personPlaceholder)
     }
 }

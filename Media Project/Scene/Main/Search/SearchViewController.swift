@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 import Alamofire
 
 class SearchViewController: UIViewController {
@@ -121,7 +120,7 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let vc = loadViewController(type: CreditViewController.self) else { return }
+        guard let vc = loadViewController(type: DetailViewController.self) else { return }
         vc.contentsDetail = searchedContents[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
