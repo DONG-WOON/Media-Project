@@ -18,7 +18,7 @@ class ProfileImageViewCell: UITableViewCell, UIConfigurable {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = .white
+        backgroundColor = .systemBackground
         
         configureViews()
         setAttributes()
@@ -57,7 +57,7 @@ class ProfileImageViewCell: UITableViewCell, UIConfigurable {
         editButton.setTitle("사진 또는 아바타 수정", for: .normal)
         editButton.titleLabel?.textAlignment = .center
         editButton.titleLabel?.font = .boldSystemFont(ofSize: 13)
-        editButton.setTitleColor(.black, for: .normal)
+        editButton.setTitleColor(.label, for: .normal)
     }
     
     func setConstraints() {

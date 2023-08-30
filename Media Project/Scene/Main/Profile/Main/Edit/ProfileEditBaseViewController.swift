@@ -10,12 +10,13 @@ import UIKit
 class ProfileEditBaseViewController: UIViewController {
 
     let mainView: LabelWithTextFieldView
+    lazy var doneButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(doneButtonDidTapped))
 
     init(title: String, placeholder: String, text: String?) {
         mainView = LabelWithTextFieldView(title: title, placeholder: placeholder, text: text)
         super.init(nibName: nil, bundle: nil)
         
-        mainView.textField.addTarget(self, action: #selector(doneButtonDidTapped), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = doneButton
         
         configureViews()
         setAttributes()
@@ -45,7 +46,7 @@ extension ProfileEditBaseViewController: UIConfigurable {
     }
     
     func setAttributes() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
     }
     
     func setConstraints() {
