@@ -1,5 +1,5 @@
 //
-//  OnboardingViewController.swift
+//  OnboardingContainerViewController.swift
 //  Media Project
 //
 //  Created by 서동운 on 8/27/23.
