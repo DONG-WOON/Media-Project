@@ -25,6 +25,19 @@
 		72685A0F2A9C826800C79F69 /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A0E2A9C826800C79F69 /* OnboardingContentViewController.swift */; };
 		72685A152A9C83B500C79F69 /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A142A9C83B500C79F69 /* OnboardingContentView.swift */; };
 		72685A192A9C8CD700C79F69 /* OnboardingOtherContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A182A9C8CD700C79F69 /* OnboardingOtherContentViewController.swift */; };
+		72685A542A9DD08B00C79F69 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A532A9DD08B00C79F69 /* ProfileViewController.swift */; };
+		72685A582A9DD22500C79F69 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A572A9DD22500C79F69 /* User.swift */; };
+		72685A5E2A9DDC5500C79F69 /* ProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A5D2A9DDC5500C79F69 /* ProfileSection.swift */; };
+		72685A602A9DDF5E00C79F69 /* LabelWithTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A5F2A9DDF5E00C79F69 /* LabelWithTextFieldView.swift */; };
+		72685A632A9DE55400C79F69 /* UIConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A622A9DE55400C79F69 /* UIConfigurable.swift */; };
+		72685A652A9DE5A900C79F69 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A642A9DE5A900C79F69 /* ProfileTableViewCell.swift */; };
+		72685A672A9DFDB000C79F69 /* ProfileImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A662A9DFDB000C79F69 /* ProfileImageViewCell.swift */; };
+		72685A6B2A9E3C4700C79F69 /* ProfileEditNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A6A2A9E3C4700C79F69 /* ProfileEditNameViewController.swift */; };
+		72685A6D2A9E3CB000C79F69 /* ProfileEditNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A6C2A9E3CB000C79F69 /* ProfileEditNicknameViewController.swift */; };
+		72685A6F2A9E422300C79F69 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A6E2A9E422300C79F69 /* Notification.swift */; };
+		72685A712A9E434D00C79F69 /* ProfileEditGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A702A9E434D00C79F69 /* ProfileEditGenderViewController.swift */; };
+		72685A782A9EFC8700C79F69 /* ProfileEditBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A772A9EFC8700C79F69 /* ProfileEditBaseViewController.swift */; };
+		72685A7C2A9EFFF700C79F69 /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72685A7B2A9EFFF700C79F69 /* Extension+Color.swift */; };
 		72AC18382A8CDEC200E9246E /* ContentsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC18372A8CDEC200E9246E /* ContentsCategory.swift */; };
 		72AC183A2A8CFBE000E9246E /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC18392A8CFBE000E9246E /* SeriesViewController.swift */; };
 		72AC183F2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC183D2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift */; };
@@ -79,6 +92,19 @@
 		72685A0E2A9C826800C79F69 /* OnboardingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentViewController.swift; sourceTree = "<group>"; };
 		72685A142A9C83B500C79F69 /* OnboardingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
 		72685A182A9C8CD700C79F69 /* OnboardingOtherContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOtherContentViewController.swift; sourceTree = "<group>"; };
+		72685A532A9DD08B00C79F69 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		72685A572A9DD22500C79F69 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		72685A5D2A9DDC5500C79F69 /* ProfileSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSection.swift; sourceTree = "<group>"; };
+		72685A5F2A9DDF5E00C79F69 /* LabelWithTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithTextFieldView.swift; sourceTree = "<group>"; };
+		72685A622A9DE55400C79F69 /* UIConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfigurable.swift; sourceTree = "<group>"; };
+		72685A642A9DE5A900C79F69 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		72685A662A9DFDB000C79F69 /* ProfileImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewCell.swift; sourceTree = "<group>"; };
+		72685A6A2A9E3C4700C79F69 /* ProfileEditNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditNameViewController.swift; sourceTree = "<group>"; };
+		72685A6C2A9E3CB000C79F69 /* ProfileEditNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditNicknameViewController.swift; sourceTree = "<group>"; };
+		72685A6E2A9E422300C79F69 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		72685A702A9E434D00C79F69 /* ProfileEditGenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditGenderViewController.swift; sourceTree = "<group>"; };
+		72685A772A9EFC8700C79F69 /* ProfileEditBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditBaseViewController.swift; sourceTree = "<group>"; };
+		72685A7B2A9EFFF700C79F69 /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
 		72AC18372A8CDEC200E9246E /* ContentsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsCategory.swift; sourceTree = "<group>"; };
 		72AC18392A8CFBE000E9246E /* SeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewController.swift; sourceTree = "<group>"; };
 		72AC183D2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSeriesCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -190,6 +216,8 @@
 				72AC18582A8F5FB400E9246E /* NameSpace.swift */,
 				72685A0A2A9C7E6600C79F69 /* ImageKey.swift */,
 				72685A0C2A9C7FCD00C79F69 /* SceneName.swift */,
+				72685A5D2A9DDC5500C79F69 /* ProfileSection.swift */,
+				72685A6E2A9E422300C79F69 /* Notification.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -199,6 +227,7 @@
 			children = (
 				725F8E402A958664009462D0 /* TabBarController.swift */,
 				72C406232A8778520044C891 /* Trending */,
+				72685A522A9DD06A00C79F69 /* Profile */,
 				72C406282A87B6890044C891 /* Detail */,
 				72AC183B2A8CFD2200E9246E /* Series */,
 				725F8DA42A9274B1009462D0 /* Recommendation */,
@@ -222,6 +251,44 @@
 				72685A142A9C83B500C79F69 /* OnboardingContentView.swift */,
 			);
 			path = Onboarding_Content_Base;
+			sourceTree = "<group>";
+		};
+		72685A522A9DD06A00C79F69 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				72685A792A9EFCA200C79F69 /* Main */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		72685A612A9DDF6D00C79F69 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				72685A5F2A9DDF5E00C79F69 /* LabelWithTextFieldView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		72685A792A9EFCA200C79F69 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				72685A532A9DD08B00C79F69 /* ProfileViewController.swift */,
+				72685A662A9DFDB000C79F69 /* ProfileImageViewCell.swift */,
+				72685A642A9DE5A900C79F69 /* ProfileTableViewCell.swift */,
+				72685A7A2A9EFCB800C79F69 /* Edit */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		72685A7A2A9EFCB800C79F69 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				72685A772A9EFC8700C79F69 /* ProfileEditBaseViewController.swift */,
+				72685A6A2A9E3C4700C79F69 /* ProfileEditNameViewController.swift */,
+				72685A6C2A9E3CB000C79F69 /* ProfileEditNicknameViewController.swift */,
+				72685A702A9E434D00C79F69 /* ProfileEditGenderViewController.swift */,
+			);
+			path = Edit;
 			sourceTree = "<group>";
 		};
 		72AC183B2A8CFD2200E9246E /* Series */ = {
@@ -262,6 +329,7 @@
 				72C406202A8778270044C891 /* Model */,
 				72C406222A8778470044C891 /* Protocol */,
 				72C406212A8778390044C891 /* API */,
+				72685A612A9DDF6D00C79F69 /* Components */,
 				72C406062A8643B80044C891 /* Extension */,
 				72685A092A9C7BAD00C79F69 /* Resource */,
 				72C405F82A862FED0044C891 /* .gitignore */,
@@ -279,6 +347,7 @@
 				72C406152A87611B0044C891 /* Extension+UIViewController.swift */,
 				72C406172A8761270044C891 /* Extension+UIView.swift */,
 				72685A072A9C703200C79F69 /* Extension+UITabBarItem.swift */,
+				72685A7B2A9EFFF700C79F69 /* Extension+Color.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -292,6 +361,7 @@
 				72AC18372A8CDEC200E9246E /* ContentsCategory.swift */,
 				72AC18492A8DB87400E9246E /* Season.swift */,
 				72C406242A8787540044C891 /* Cast.swift */,
+				72685A572A9DD22500C79F69 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -314,6 +384,7 @@
 				72C406192A8761CA0044C891 /* Identifiable.swift */,
 				72AC185A2A8F60BE00E9246E /* PlaceholderProtocol.swift */,
 				725F8D992A8FBD7D009462D0 /* CollectionViewConfigurable.swift */,
+				72685A622A9DE55400C79F69 /* UIConfigurable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -429,8 +500,11 @@
 				72685A152A9C83B500C79F69 /* OnboardingContentView.swift in Sources */,
 				725F8DA82A92E046009462D0 /* RecommendationCompositionalLayout.swift in Sources */,
 				72C405E52A862E2E0044C891 /* TrendingViewController.swift in Sources */,
+				72685A6D2A9E3CB000C79F69 /* ProfileEditNicknameViewController.swift in Sources */,
 				72C405E12A862E2E0044C891 /* AppDelegate.swift in Sources */,
 				72C4060D2A8747D00044C891 /* Responses.swift in Sources */,
+				72685A5E2A9DDC5500C79F69 /* ProfileSection.swift in Sources */,
+				72685A6F2A9E422300C79F69 /* Notification.swift in Sources */,
 				72C405FF2A8630E90044C891 /* APIKEY.swift in Sources */,
 				7268599B2A9B836100C79F69 /* OnboardingContainerViewController.swift in Sources */,
 				72AC18432A8CFD8200E9246E /* SeriesCollectionViewCell.swift in Sources */,
@@ -443,8 +517,11 @@
 				72685A0D2A9C7FCD00C79F69 /* SceneName.swift in Sources */,
 				72AC18592A8F5FB400E9246E /* NameSpace.swift in Sources */,
 				72C4062A2A87B6A80044C891 /* CastCell.swift in Sources */,
+				72685A652A9DE5A900C79F69 /* ProfileTableViewCell.swift in Sources */,
+				72685A712A9E434D00C79F69 /* ProfileEditGenderViewController.swift in Sources */,
 				72AC18382A8CDEC200E9246E /* ContentsCategory.swift in Sources */,
 				72AC185B2A8F60BE00E9246E /* PlaceholderProtocol.swift in Sources */,
+				72685A582A9DD22500C79F69 /* User.swift in Sources */,
 				72C405FD2A8630E10044C891 /* EndPoint.swift in Sources */,
 				72C405E32A862E2E0044C891 /* SceneDelegate.swift in Sources */,
 				72AC183F2A8CFD5100E9246E /* HeaderSeriesCollectionReusableView.swift in Sources */,
@@ -452,17 +529,24 @@
 				72C4062C2A87B6B60044C891 /* OverviewCell.swift in Sources */,
 				726859A52A9B871100C79F69 /* OnboardingLastContentViewController.swift in Sources */,
 				725F8E412A958664009462D0 /* TabBarController.swift in Sources */,
+				72685A672A9DFDB000C79F69 /* ProfileImageViewCell.swift in Sources */,
 				72C4061A2A8761CA0044C891 /* Identifiable.swift in Sources */,
+				72685A7C2A9EFFF700C79F69 /* Extension+Color.swift in Sources */,
+				72685A782A9EFC8700C79F69 /* ProfileEditBaseViewController.swift in Sources */,
 				725F8D9A2A8FBD7D009462D0 /* CollectionViewConfigurable.swift in Sources */,
+				72685A6B2A9E3C4700C79F69 /* ProfileEditNameViewController.swift in Sources */,
 				72C406032A8632040044C891 /* TMDBRequest.swift in Sources */,
 				72AC18462A8CFE1A00E9246E /* SeriesCompositionalLayout.swift in Sources */,
 				72685A082A9C703200C79F69 /* Extension+UITabBarItem.swift in Sources */,
 				725F8DA32A927240009462D0 /* Video.swift in Sources */,
+				72685A602A9DDF5E00C79F69 /* LabelWithTextFieldView.swift in Sources */,
 				72C4061F2A87781E0044C891 /* Contents.swift in Sources */,
 				725F8DA62A9274DF009462D0 /* RecommendationViewController.swift in Sources */,
+				72685A632A9DE55400C79F69 /* UIConfigurable.swift in Sources */,
 				725F8DAA2A92E18B009462D0 /* RecommendationCollectionViewCell.swift in Sources */,
 				726859A92A9B8BBE00C79F69 /* ProgressView.swift in Sources */,
 				72C406182A8761270044C891 /* Extension+UIView.swift in Sources */,
+				72685A542A9DD08B00C79F69 /* ProfileViewController.swift in Sources */,
 				72685A0F2A9C826800C79F69 /* OnboardingContentViewController.swift in Sources */,
 				72C406272A87B6830044C891 /* DetailViewController.swift in Sources */,
 			);

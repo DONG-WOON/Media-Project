@@ -13,6 +13,7 @@ final class TrendingViewController: UIViewController {
     @Published var currentTitle = ContentsCategory.all.title
     
     lazy var categoryButton = UIBarButtonItem(image: UIImage(systemName: ImageKey.listBullet))
+    lazy var profileButton = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .done, target: self, action: #selector(goToProfile))
     private var anyCancellable = Set<AnyCancellable>()
     private var isLoading = false {
         didSet {
@@ -40,12 +41,20 @@ final class TrendingViewController: UIViewController {
             self?.title = title
         }.store(in: &anyCancellable)
        
-        setCategoryButton()
+        setNavigation()
         callTrendingRequest(.all)
     }
     
-    private func setCategoryButton() {
+    @objc func goToProfile() {
+        let vc = ProfileViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
+    }
+    
+    private func setNavigation() {
         navigationItem.leftBarButtonItem = categoryButton
+        navigationItem.rightBarButtonItem = profileButton
         
         categoryButton.menu = UIMenu(children: [
             action(for: .all),
@@ -128,7 +137,7 @@ private extension TrendingViewController {
     func action(for contentsCategory: ContentsCategory) -> UIAction {
         let action = UIAction(title: contentsCategory.title) { [weak self] action in
             guard self?.currentTitle != contentsCategory.title else { return }
-            self?.currentTitle = "\(contentsCategory.title) Trending"
+            self?.currentTitle = contentsCategory.title
             self?.callTrendingRequest(contentsCategory)
         }
         

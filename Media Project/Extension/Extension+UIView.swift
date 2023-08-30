@@ -40,6 +40,11 @@ extension UIView {
         self.layer.shadowOpacity = 0.7
     }
     
+    func makeBorder(width: CGFloat, color: UIColor) {
+        self.layer.borderColor = color.cgColor
+        self.layer.borderWidth = width
+    }
+    
     convenience init(_ backgroundColor: UIColor) {
         self.init()
         

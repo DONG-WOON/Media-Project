@@ -12,58 +12,76 @@ class SearchViewController: UIViewController {
     
     var searchedContents = [Contents]()
     var selectedMediaType: MediaType = .tv
-    let segmentedControl = UISegmentedControl()
     
+    let segmentedControl = UISegmentedControl()
     let tableView = UITableView()
     let searchBar = UISearchBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchBar.autocapitalizationType = .none
-        searchBar.searchTextField.placeholder = "영화 / TV 프로그램을 영어로 검색하세요."
-        searchBar.returnKeyType = .done
-        searchBar.delegate = self
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.separatorStyle = .none
-        tableView.register(UINib(nibName: TMDBContentsTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TMDBContentsTableViewCell.identifier)
-
         configureViews()
         
-        navigationItem.titleView = searchBar
-        navigationItem.hidesSearchBarWhenScrolling = false
-                
-        segmentedControl.insertSegment(withTitle: MediaType.tv.rawValue, at: 0, animated: false)
-        segmentedControl.insertSegment(withTitle: MediaType.movie.rawValue, at: 1, animated: false)
-        segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.addTarget(self, action: #selector(toggle), for: .valueChanged)
+        setNavigation()
+        setAttributes()
+        setConstraints()
     }
-}
-
-extension SearchViewController {
+    
     @objc func toggle() {
         let mediaType: MediaType = selectedMediaType == .movie ? .tv : .movie
         
         selectedMediaType = mediaType
     }
+}
+
+extension SearchViewController: UIConfigurable {
+    
+    func setNavigation() {
+        navigationItem.titleView = searchBar
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
     
     func configureViews() {
         view.addSubview(segmentedControl)
         view.addSubview(tableView)
+    }
+    
+    func setAttributes() {
+        view.backgroundColor = .systemBackground
         
+        searchBar.autocapitalizationType = .none
+        searchBar.searchTextField.placeholder = "영화 / TV 프로그램을 영어로 검색하세요."
+        searchBar.returnKeyType = .done
+        searchBar.delegate = self
+        searchBar.backgroundColor = .clear
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorStyle = .none
+        tableView.register(UINib(nibName: TMDBContentsTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TMDBContentsTableViewCell.identifier)
+        
+        segmentedControl.insertSegment(withTitle: MediaType.tv.rawValue, at: 0, animated: false)
+        segmentedControl.insertSegment(withTitle: MediaType.movie.rawValue, at: 1, animated: false)
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.backgroundColor = .clear
+        
+        segmentedControl.addTarget(self, action: #selector(toggle), for: .valueChanged)
+    }
+    
+    func setConstraints() {
         segmentedControl.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(10)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(30)
         }
 
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom)
+            make.top.equalTo(segmentedControl.snp.bottom).offset(10)
             make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }
+
+// MARK: - UISearchBarDelegate
 
 extension SearchViewController: UISearchBarDelegate {
     
@@ -89,6 +107,8 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.text = ""
     }
 }
+
+// MARK: - UITableView
 
 extension SearchViewController: UITableViewDataSource {
     

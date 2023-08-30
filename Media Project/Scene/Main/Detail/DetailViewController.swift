@@ -28,6 +28,7 @@ final class DetailViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(OverviewCell.self, forCellReuseIdentifier: OverviewCell.identifier)
         
         navigationItem.rightBarButtonItem = gotoRecommendationVCButton
         

@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
         let isAlreadyLaunched = UserDefaults.standard.bool(forKey: NameSpace.isAlreadyLaunched)
-        
+
         if !isAlreadyLaunched {
             let vc = OnboardingContainerViewController()
             self.window?.rootViewController = vc

@@ -11,11 +11,19 @@ final class OverviewCell: UITableViewCell {
     
     var overviewSectionReload: () -> Void = { }
     
-    @IBOutlet weak var overviewLabel: UILabel!
-    @IBOutlet weak var disclosureButton: UIButton!
+    let overviewLabel = UILabel()
+    let disclosureButton = UIButton()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        configureViews()
+        setAttributes()
+        setConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func prepareForReuse() {
@@ -23,8 +31,8 @@ final class OverviewCell: UITableViewCell {
         disclosureButton.setImage(nil, for: .normal)
     }
 
-    @IBAction func disclosureButtonDidTapped(_ sender: UIButton) {
-        
+
+    @objc func disclosureButtonDidTapped() {
         overviewSectionReload()
     }
     
@@ -42,4 +50,33 @@ final class OverviewCell: UITableViewCell {
             disclosureButton.setImage(UIImage(systemName: disclosureImageName), for: .normal)
         }
     }
+}
+
+extension OverviewCell: UIConfigurable {
+    func configureViews() {
+        contentView.addSubview(overviewLabel)
+        contentView.addSubview(disclosureButton)
+    }
+    
+    func setAttributes() {
+        
+        overviewLabel.font = .systemFont(ofSize: 14)
+        
+        disclosureButton.backgroundColor = .clear
+        disclosureButton.tintColor = .label
+        disclosureButton.addTarget(self, action: #selector(disclosureButtonDidTapped), for: .touchUpInside)
+    }
+    
+    func setConstraints() {
+        overviewLabel.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalToSuperview().inset(10)
+        }
+        disclosureButton.snp.makeConstraints { make in
+            make.top.equalTo(overviewLabel.snp.bottom)
+            make.horizontalEdges.bottom.equalToSuperview().inset(10)
+            make.height.equalTo(30)
+        }
+    }
+    
+    
 }
